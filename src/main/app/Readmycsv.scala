@@ -1,6 +1,8 @@
 import org.apache.spark.sql.SparkSession
+import scala.io.Source
 
 object Readmycsv extends App {
+  override def main(args: Array[String]): Unit = {
 
     // Create a Spark Session
     // For Windows
@@ -18,13 +20,13 @@ object Readmycsv extends App {
       .format("csv")
       .option("header", "true") //first line in file has headers
       .option("mode", "DROPMALFORMED")
-      .load("resources\\test.csv")
+      .load(args(0))
     println("Created Spark Session")
 
     df.show()
     df.write.format("csv").save("samplesq")
 
   }
-
+}
 
 
