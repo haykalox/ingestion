@@ -24,7 +24,7 @@ object Readmycsv extends App {
     println("Created Spark Session")
 
     df.show()
-    df.write.format("csv").save("samplesq")
+    df.write.format("csv").save(args(1))
 
   }
 }
