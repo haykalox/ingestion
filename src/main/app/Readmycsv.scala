@@ -18,7 +18,7 @@ object Readmycsv extends App {
       .format("csv")
       .option("header", "true") //first line in file has headers
       .option("mode", "DROPMALFORMED")
-      .load("c:\\a\\test.csv")
+      .load("resources\\test.csv")
     println("Created Spark Session")
 
     df.show()
