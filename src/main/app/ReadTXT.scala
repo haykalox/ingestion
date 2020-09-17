@@ -1,6 +1,6 @@
 import org.apache.spark.sql.SparkSession
 
-object Readmycsv {
+object ReadTXT {
   def main(args: Array[String]): Unit = {
 
     // Create a Spark Session
@@ -15,17 +15,14 @@ object Readmycsv {
       .enableHiveSupport()
       .getOrCreate()
 
-    val df = spark.read
-      .format("csv")
-      .option("header", "true") //first line in file has headers
-      .option("mode", "DROPMALFORMED")
-      .load(args(0))
-    println("Created Spark Session")
+    println("##spark read text files from a directory into RDD")
+    val rddFromFile = spark.sparkContext.textFile(args(0))
+    println(rddFromFile.getClass)
+    println("##Get data Using collect")
+    rddFromFile.collect().foreach(f=>{
+      println(f)
+    })
 
-    df.show()
-    df.write.format("csv").save(args(1))
-
-  }
-}
+}}
 
 
