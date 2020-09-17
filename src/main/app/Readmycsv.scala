@@ -1,8 +1,7 @@
 import org.apache.spark.sql.SparkSession
-import scala.io.Source
 
-object Readmycsv extends App {
-  override def main(args: Array[String]): Unit = {
+object Readmycsv {
+  def main(args: Array[String]): Unit = {
 
     // Create a Spark Session
     // For Windows
