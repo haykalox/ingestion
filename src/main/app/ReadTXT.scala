@@ -1,4 +1,4 @@
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{Dataset, SparkSession}
 
 object ReadTXT {
   def main(args: Array[String]): Unit = {
@@ -15,14 +15,17 @@ object ReadTXT {
       .enableHiveSupport()
       .getOrCreate()
 
-    println("##spark read text files from a directory into RDD")
-    val rddFromFile = spark.sparkContext.textFile(args(0))
-    println(rddFromFile.getClass)
-    println("##Get data Using collect")
-    rddFromFile.collect().foreach(f=>{
-      println(f)
-    })
 
-}}
+    val df:Dataset[String] = spark.read.textFile(args(0))
+    df.printSchema()
+    df.show(false)
+    println("Created Spark Session")
+
+
+
+    val op= df.rdd.map(_.toString()).saveAsTextFile(args(1))
+
+  }
+}
 
 
