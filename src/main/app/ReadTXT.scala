@@ -18,12 +18,9 @@ object ReadTXT {
 
     val df:Dataset[String] = spark.read.textFile(args(0))
     df.printSchema()
-    df.show(false)
-    println("Created Spark Session")
+    df.collect.foreach(println)
 
-
-
-    val op= df.rdd.map(_.toString()).saveAsTextFile(args(1))
+    // val op= df.rdd.map(_.toString()).saveAsTextFile(args(1))
 
   }
 }
