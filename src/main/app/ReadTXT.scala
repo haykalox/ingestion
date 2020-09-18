@@ -20,7 +20,7 @@ object ReadTXT {
     df.printSchema()
     df.collect.foreach(println)
 
-    // val op= df.rdd.map(_.toString()).saveAsTextFile(args(1))
+   val op= df.rdd.map(_.toString()).saveAsTextFile(args(1))
 
   }
 }
