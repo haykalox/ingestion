@@ -1,0 +1,17 @@
+<message>
+<expediteur>
+<personne>
+<prenom>Guillaume</prenom>
+<nom>Charpentier</nom>
+<email>gcharpen@etudiant.univ-mlv.fr</email>
+</personne>
+</expediteur>
+<destinataire>
+<personne>
+<prenom>Gérard</prenom>
+<nom>Dupont</nom>
+<email>gerarddupont@provider.com</email>
+</personne>
+</destinataire>
+<texte>mon message</texte>
+</message>
